@@ -8,7 +8,7 @@ import br.com.senai.loja.util.JPAUtil;
 
 import javax.persistence.EntityManager;
 
-public class CadastroDeProdutoTestMergeRemove {
+public class CadastroDeProdutoTestMergeUpdateRemove {
     public static void main(String[] args) {
 
         Categoria celulares = new Categoria("CELULARES");
@@ -29,6 +29,9 @@ public class CadastroDeProdutoTestMergeRemove {
         celular = em.merge(celular);
         celular.setNome("Iphone 11");
         celular.setDescricao("Sem carregador");
+        em.flush();
+        produtoDAO.remover(celular);
+//        em.remove(celular);
         em.getTransaction().commit();
         em.close();
     }
