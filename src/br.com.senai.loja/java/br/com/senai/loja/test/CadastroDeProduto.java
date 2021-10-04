@@ -20,6 +20,8 @@ public class CadastroDeProduto {
 
         em.getTransaction().begin();
         categoriaDAO.cadastrar(celulares);
+        categoriaDAO.atualizar(celulares);
+        celular.setNome("123");
         produtoDAO.cadastrar(celular);
         em.getTransaction().commit();
         em.close();
