@@ -14,5 +14,9 @@ public class ProdutoDAO {
     public void cadastrar(Produto produto) {
         this.em.persist(produto);
     }
+
+    public void atualizar(Produto produto){
+        this.em.merge(produto);
+    }
 }
 
