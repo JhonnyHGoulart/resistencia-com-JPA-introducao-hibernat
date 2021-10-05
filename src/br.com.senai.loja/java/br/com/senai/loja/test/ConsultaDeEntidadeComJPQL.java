@@ -12,17 +12,20 @@ public class ConsultaDeEntidadeComJPQL {
 
         EntityManager em = JPAUtil.getEntityManager();
         ProdutoDAO produtoDAO = new ProdutoDAO(em);
-//        Produto produto = produtoDAO.buscarPorId(136L);
-//        System.out.println(produto.getPreco());
-//
-//        List<Produto> produtos = produtoDAO.buscarTodos();
-//        produtos.stream().forEach(System.out::println);
-//
-//        List<Produto> produtos1 = produtoDAO.buscarComFiltro("Xiaomi");
-//        produtos1.stream().forEach(p1 -> System.out.println(p1.getNome()));
+        Produto produto = produtoDAO.buscarPorId(136L);
+        System.out.println(produto.getPreco());
+
+        List<Produto> produtos = produtoDAO.buscarTodos();
+        produtos.stream().forEach(System.out::println);
+
+        List<Produto> produtos1 = produtoDAO.buscarComFiltro("Xiaomi");
+        produtos1.stream().forEach(p1 -> System.out.println(p1.getNome()));
 
         List<Produto> produtos2 = produtoDAO.buscarPorNomeDeCategoria("CELULARES");
         produtos2.stream().forEach(p2 -> System.out.println(p2.getNome()));
+
+        Double precoDoProduto = produtoDAO.buscarPrecodoProdutoComNome("Xiaomi");
+        System.out.println("Preço do produto = "+precoDoProduto);
 
     }
 }

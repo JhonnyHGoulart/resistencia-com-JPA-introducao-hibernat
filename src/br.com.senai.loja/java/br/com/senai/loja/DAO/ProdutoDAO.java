@@ -49,5 +49,13 @@ public class ProdutoDAO {
                 .setParameter("nome", nome)
                 .getResultList();
     }
+
+    public Double buscarPrecodoProdutoComNome(String nome) {
+        String jpql = "SELECT p.preco FROM Produto p WHERE p.nome = :nome";
+        return em.createQuery(jpql, Double.class)
+                .setParameter("nome", nome).setMaxResults(1)
+                .getSingleResult();
+
+    }
 }
 
