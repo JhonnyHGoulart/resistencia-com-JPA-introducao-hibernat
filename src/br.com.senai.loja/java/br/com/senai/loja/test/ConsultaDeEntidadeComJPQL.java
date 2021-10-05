@@ -12,10 +12,17 @@ public class ConsultaDeEntidadeComJPQL {
 
         EntityManager em = JPAUtil.getEntityManager();
         ProdutoDAO produtoDAO = new ProdutoDAO(em);
-        Produto p = produtoDAO.buscarPorId(136L);
-        System.out.println(p.getPreco());
+//        Produto produto = produtoDAO.buscarPorId(136L);
+//        System.out.println(produto.getPreco());
+//
+//        List<Produto> produtos = produtoDAO.buscarTodos();
+//        produtos.stream().forEach(System.out::println);
+//
+//        List<Produto> produtos1 = produtoDAO.buscarComFiltro("Xiaomi");
+//        produtos1.stream().forEach(p1 -> System.out.println(p1.getNome()));
 
-        List<Produto> todos = produtoDAO.buscarTodos();
-            todos.stream().forEach(System.out::println);
+        List<Produto> produtos2 = produtoDAO.buscarPorNomeDeCategoria("CELULARES");
+        produtos2.stream().forEach(p2 -> System.out.println(p2.getNome()));
+
     }
 }
